@@ -309,7 +309,11 @@ class Dataset(TorchDataset):
                 rel_type, self._rel_type_id)
             self._rel_type_id += 1
         return self._rel_types[rel_type]
-
+    def num_ent_types(self):
+        return len(self._ent_types)
+    def num_rel_types(self):
+        return len(self._rel_types)
+        
     def get_ent_type(self, ent_type: str) -> EntityType:
         if ent_type not in self._ent_types:
             self._ent_types[ent_type] = EntityType(
